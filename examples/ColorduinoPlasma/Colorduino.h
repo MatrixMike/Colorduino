@@ -21,13 +21,12 @@
 #ifndef _COLORDUINO_H_
 #define _COLORDUINO_H_
 
-/*#if defined(ARDUINO) && ARDUINO >= 100
+#if defined(ARDUINO) && ARDUINO >= 100
 #include "Arduino.h"
 #else
 #include "WProgram.h"
 #include "pins_arduino.h"
 #endif
-*/
 
 #include <avr/pgmspace.h> 
 #include <avr/io.h>
@@ -150,7 +149,7 @@ class ColorduinoObject {
     curDrawFrame = frameBuffer1;
   }
 
-static  void _IO_Init()
+  void _IO_Init()
     {
 #if defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__)
     DDRF = 0xff;
@@ -182,11 +181,11 @@ static  void _IO_Init()
 #endif
     }
   
-static  void LED_Delay(unsigned char i);
+  void LED_Delay(unsigned char i);
   
-static  void SetWhiteBal(unsigned char wbval[3]);
+  void SetWhiteBal(unsigned char wbval[3]);
 
-static   void _LED_Init()
+  void _LED_Init()
     {
       LED_RST_SET;
       LED_Delay(1);
@@ -198,7 +197,7 @@ static   void _LED_Init()
       line = 0;
     }
 
-static  void _TC2_Init()
+  void _TC2_Init()
     {
       // Arduino runs at 16 Mhz...
       // Timer Settings, for the Timer Control Register etc. , thank you internets. ATmega168 !
@@ -247,7 +246,7 @@ static  void _TC2_Init()
       sei();
     }
   
-static  void open_line(unsigned char x)
+  void open_line(unsigned char x)
     {
       switch (x)
 	{  
@@ -340,7 +339,7 @@ Function: Set the TimerCounter variable.
           ISR fires every 256-TCNTn ticks
 Parameter:data=loaded into TCNTn at the end of ISR
 ********************************************************/
-static  void SetTimerCounter(unsigned char data);
+  void SetTimerCounter(unsigned char data);
 
   void run();
 };

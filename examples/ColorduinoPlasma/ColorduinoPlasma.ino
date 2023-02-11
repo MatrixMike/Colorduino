@@ -24,7 +24,7 @@
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#include <Colorduino.h>
+#include "Colorduino.h"
 
 // To show off our hardware PWM LED driver (capable of displaying 16M colors),
 // we will add gamma correction to show more accurate colors, and we will
